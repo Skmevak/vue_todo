@@ -15,4 +15,17 @@ export default {};
 </script>
 
 <style>
+.todo-footer {
+  width: 446px;
+  margin: 10px;
+  padding-left: 10px;
+}
+.todo-footer span {
+  margin-left: 5px;
+}
+.todo-footer .btn-danger {
+  width: 100px;
+  height: 22px;
+}
+
 </style>

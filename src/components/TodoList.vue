@@ -1,25 +1,28 @@
 <template>
   <ul class="todo-main">
-    <li>
-      <label>
-        <input type="checkbox" />
-        <span>xxxxx</span>
-      </label>
-      <button class="btn btn-danger">删除</button>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" />
-        <span>yyyyyy</span>
-      </label>
-      <button class="btn btn-danger">删除</button>
-    </li>
+    <todo-item v-for="(todo,index) in todos" :key="index" :todo="todo" :index="index" :deleteTodo="deleteTodo"/>
   </ul>
 </template>
 
 <script>
-export default {};
+  import TodoItem from './TodoItem.vue';
+  export default {
+    props:{
+      todos:Array,
+      deleteTodo: Function
+    },
+    components:{
+      TodoItem
+    }
+  };
 </script>
 
 <style>
+.todo-main {
+  width: 460px;
+  margin: 10px;
+  border: 1.5px solid gainsboro;
+  border-radius: 5px;
+}
+
 </style>

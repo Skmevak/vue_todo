@@ -57,6 +57,9 @@ body {
   line-height: 30px;
   border-bottom: 1px solid gainsboro;
 }
+.todo-main li:last-child {
+  border-bottom: none;
+}
 .todo-main li span {
   margin-left: 5px;
 }
