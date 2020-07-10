@@ -17,11 +17,8 @@ export default {
   name: "App",
   data(){
     return{
-      todos:[
-        {title: '吃饭',complete: false},
-        {title: 'sleep',complete: true},
-        {title: 'coding',complete: false}
-      ]
+      //从localstorage读取todos
+      todos: JSON.parse(window.localStorage.getItem('todos_key') || '[]')
     }
   },
   components: {
@@ -42,6 +39,16 @@ export default {
     SelectAllTodos(check){
       this.todos.forEach(todo => todo.complete = check)
     }
+
+  },
+  watch: {//深度监视
+  todos:{
+    deep: true,//深度监视
+    handler: function(value){
+      //将todos最新值的JSON数据，保存到localstorage
+      window.localStorage.setItem('todos_key',JSON.stringify(value))
+    }
+  }
 
   }
 };
