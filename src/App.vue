@@ -3,7 +3,7 @@
     <div class="todo-wrap">
       <todo-header :addTodo="addTodo"/>
       <todo-list :todos="todos" :deleteTodo="deleteTodo"/>
-      <todo-footer/>
+      <todo-footer :todos="todos" :deleteCompleteTodos="deleteCompleteTodos" :SelectAllTodos="SelectAllTodos"/>
     </div>
   </div>
 </template>
@@ -35,7 +35,14 @@ export default {
     },
     deleteTodo(index){
       this.todos.splice(index,1);
+    },
+    deleteCompleteTodos(){
+      this.todos = this.todos.filter(todo => !todo.complete);
+    },
+    SelectAllTodos(check){
+      this.todos.forEach(todo => todo.complete = check)
     }
+
   }
 };
 </script>

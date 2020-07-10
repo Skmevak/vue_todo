@@ -24,5 +24,4 @@
   border: 1.5px solid gainsboro;
   border-radius: 5px;
 }
-
 </style>
